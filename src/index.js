@@ -14,11 +14,7 @@ app.use(authRoutes);
 app.use(trackRoutes);
 
 const mongoUri = 'mongodb+srv://admin:root@cluster0.wqeeh.mongodb.net/native-blog?retryWrites=true&w=majority';
-if (!mongoUri) {
-  throw new Error(
-    `MongoURI was not supplied.  Make sure you watch the video on setting up Mongo DB!`
-  );
-}
+
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useCreateIndex: true,
