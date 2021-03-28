@@ -14,6 +14,7 @@ app.use(authRoutes);
 app.use(trackRoutes);
 
 const mongoUri = 'mongodb+srv://admin:root@cluster0.wqeeh.mongodb.net/native-blog?retryWrites=true&w=majority';
+const PORT = process.env.PORT || 8000
 
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
@@ -31,6 +32,6 @@ app.get('/', requireAuth, (req, res) => {
   res.send(`Your email: ${req.user.email}`);
 });
 
-app.listen(8000, () => {
-  console.log('Listening on port 3000');
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
